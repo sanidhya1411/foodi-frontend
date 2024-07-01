@@ -15,7 +15,17 @@ const UserProfile = () => {
 
         updateUserProfile(name, photoURL).then(() => {
             // Profile updated!
-            alert("Profile updated successfully")
+            toast.success('Sign Up Successfull', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+            navigate("/");
           }).catch((error) => {
             // An error occurred
             // ...
@@ -33,9 +43,9 @@ const UserProfile = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Upload Photo</span>
+            <span className="label-text">Enter Image Url</span>
           </label>
-          <input type="file" {...register("photoURL")}  className="file-input w-full mt-1" />
+          <input type="text" {...register("photoURL")} placeholder="Your Url" className="input input-bordered" required />
           {/* <input type="text" {...register("photoURL")} placeholder="photo url" className="input input-bordered" required /> */}
         </div>
         <div className="form-control mt-6">

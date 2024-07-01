@@ -74,7 +74,16 @@ const Signup = () => {
           .post("/users", userInfor)
           .then((response) => {
             // console.log(response);
-            alert("Signin successful!");
+            toast.success('Sign Up Successfull', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
             navigate("/");
           });
       })
