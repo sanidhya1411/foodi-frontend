@@ -44,8 +44,8 @@ const Dashboard = () => {
   };
 
   const todayOrders = localOrders.filter(order => isToday(order.createdAt));
-  const pendingOrders = todayOrders.filter(order => order.status === "Confirmed");
-  const totalRevenue = todayOrders.reduce((total, order) => total + order.price, 0);
+  const confirmOrders = todayOrders.filter(order => order.status === "Confirmed");
+  const totalRevenue = confirmOrders.reduce((total, order) => total + order.price, 0);
 
   return (
     <div>
