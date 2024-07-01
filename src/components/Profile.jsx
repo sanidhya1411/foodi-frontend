@@ -47,7 +47,7 @@ const Profile = ({ user }) => {
               <a href="/update-profile">Profile</a>
             </li>
             <li>
-              <a href="/orders">Order</a>
+              <a href="/order">Order</a>
             </li>
             {isAdmin?<li>
               <Link to="/dashboard">Dashboard</Link>
