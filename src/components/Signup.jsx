@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaFacebookF, FaGithub, FaGoogle, FaRegUser } from "react-icons/fa";
+import { FaGoogle} from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Modal from "./Modal";
 import { AuthContext } from "../contexts/AuthProvider";
@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import useAxiosPublic from "../hooks/useAxiosPublic";
 
 const Signup = () => {
+  const [Error, setError] = useState("");
   const { signUpWithGmail, createUser, updateUserProfile } =
     useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
@@ -27,6 +28,7 @@ const Signup = () => {
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
+
     // console.log(email, password)
     createUser(email, password)
       .then((result) => {
@@ -57,6 +59,7 @@ const Signup = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage);
         // ..
       });
   };
@@ -103,7 +106,7 @@ const Signup = () => {
               type="name"
               placeholder="Your name"
               className="input input-bordered"
-              {...register("name")}
+              {...register("name",{ required: true })}
             />
           </div>
 
@@ -116,7 +119,7 @@ const Signup = () => {
               type="email"
               placeholder="email"
               className="input input-bordered"
-              {...register("email")}
+              {...register("email",{ required: true })}
             />
           </div>
 
@@ -129,12 +132,12 @@ const Signup = () => {
               type="password"
               placeholder="password"
               className="input input-bordered"
-              {...register("password")}
+              {...register("password",{ required: true })}
             />
           </div>
 
           {/* error message */}
-          <p>{errors.message}</p>
+          <p>{Error}</p>
 
           {/* submit btn */}
           <div className="form-control mt-6">

@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthProvider'
 import { useForm } from 'react-hook-form';
 
 const UserProfile = () => {
-    const {updateUserProfile} = useContext(AuthContext);
+  const { updateUserProfile } = useContext(AuthContext);
+  const [error, setError] = useState("");
     const {
         register,
         handleSubmit,
@@ -13,9 +14,9 @@ const UserProfile = () => {
         const name = data.name;
         const photoURL = data.photoURL;
 
-        updateUserProfile(name, photoURL).then(() => {
+        updateUserProfile(name, photoURL).then((response) => {
             // Profile updated!
-            toast.success('Sign Up Successfull', {
+            toast.success('Successfull', {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -25,10 +26,11 @@ const UserProfile = () => {
               progress: undefined,
               theme: "colored",
             });
+          
             navigate("/");
           }).catch((error) => {
             // An error occurred
-            // ...
+            setError(error)
           });
       }
   return (
@@ -46,8 +48,7 @@ const UserProfile = () => {
             <span className="label-text">Enter Image Url</span>
           </label>
           <input type="text" {...register("photoURL")} placeholder="Your Url" className="input input-bordered" required />
-          {/* <input type="text" {...register("photoURL")} placeholder="photo url" className="input input-bordered" required /> */}
-        </div>
+          </div>
         <div className="form-control mt-6">
           <input type='submit' value={"Update"} className="btn bg-green text-white"/>
         </div>
