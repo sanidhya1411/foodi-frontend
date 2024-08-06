@@ -61,7 +61,7 @@ const Order = () => {
                   </td>
                   <td>{item.transactionId}</td>
                   <td>
-                    ${item.price}
+                    Rs{item.price}
                   </td>
                   <td>
                     {item.status}

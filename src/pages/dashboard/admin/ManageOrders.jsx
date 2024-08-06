@@ -121,7 +121,7 @@ const ManageOrders = () => {
                         </tr>
                       ))}
                     </td>
-                    <td>${item.price}</td>
+                    <td>Rs{item.price}</td>
                     <td className='flex space-between'>
                       <button
                         onClick={() => handleConfirmItem(item)}

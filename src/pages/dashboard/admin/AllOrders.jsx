@@ -63,7 +63,7 @@ const Order = () => {
                     ))}
     
                 </td>
-                <td>${item.price}</td>
+                <td>Rs{item.price}</td>
                 <td>{item.status}</td>
                 <td>
                   <button onClick={() => handleDeleteUser(user)} className="btn btn-xs bg-orange-500 text-white">

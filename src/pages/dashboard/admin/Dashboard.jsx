@@ -51,7 +51,7 @@ const Dashboard = () => {
     <div>
       <div className="flex items-center justify-between m-4">
         <h5>Total Orders for Today: {todayOrders.length}</h5>
-        <h5>Total Revenue: $ {totalRevenue}</h5>
+        <h5>Total Revenue: Rs {totalRevenue}</h5>
       </div>
       {todayOrders.length > 0 ? (
         <div>

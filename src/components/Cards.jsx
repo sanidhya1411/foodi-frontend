@@ -86,7 +86,7 @@ const Cards = ({ item }) => {
         <p>{item.recipe }</p>
         <div className="card-actions justify-between items-center mt-2">
           <h5 className="font-semibold">
-            <span className="text-sm text-red">$ </span> {item.price}
+            <span className="text-sm text-red">Rs </span> {item.price}
           </h5>
           <button onClick={() => handleAddToCart(item)} className="btn bg-green text-white">Add to Cart </button>
         </div>

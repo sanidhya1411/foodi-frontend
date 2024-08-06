@@ -97,7 +97,7 @@ const CheckoutForm = ({ price, cart }) => {
     <div className='flex flex-col sm:flex-row justify-start items-start gap-8'>
       <div className='md:w-1/2 w-full space-y-3'>
         <h4 className='text-lg font-semibold'>Order Summary</h4>
-        <p>Total price: ${price}</p>
+        <p>Total price: Rs{price}</p>
         <p>Number of Items: {cart.length}</p>
       </div>
 
